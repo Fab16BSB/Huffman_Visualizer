@@ -66,6 +66,16 @@ El objetivo principal era comprender cómo funciona el algoritmo de Huffman mani
 
 ---
 
+### 💻 Instalar Java (Si no tienes Java instalado)
+
+Si no tienes Java instalado, puedes seguir las instrucciones en uno de mis videos de YouTube para instalar Java en diferentes plataformas:
+
+- **Linux**: [Instalar Java en Linux](https://www.youtube.com/watch?v=-9G2YARJ0jM)
+- **Mac**: [Instalar Java en Mac](https://www.youtube.com/watch?v=hts1lGSKZfc&t=1s)
+- **Windows**: [Instalar Java en Windows](https://www.youtube.com/watch?v=vCQHCYM_OVY)
+  
+---
+
 ### 📝 Compilación y Ejecución
 
 1. **Clonar el repositorio**  
@@ -83,6 +93,8 @@ El objetivo principal era comprender cómo funciona el algoritmo de Huffman mani
    ```bash
    java Lancement
    ```
+   
+---
 
 ### 🙌 Agradecimientos
 Gracias al equipo docente del IUT de Montreuil por su acompañamiento durante el proyecto.
