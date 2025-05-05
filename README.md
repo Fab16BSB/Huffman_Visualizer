@@ -66,6 +66,16 @@ The main objective was to understand how Huffman coding works by manipulating in
 
 ---
 
+### 💻 Install Java (If You Don't Have Java Installed)
+
+If you don't have Java installed, you can follow the instructions in one of my YouTube videos for installing Java on different platforms:
+
+- **Linux**: [Install Java on Linux](https://www.youtube.com/watch?v=-9G2YARJ0jM)
+- **Mac**: [Install Java on Mac](https://www.youtube.com/watch?v=hts1lGSKZfc&t=1s)
+- **Windows**: [Install Java on Windows](https://www.youtube.com/watch?v=vCQHCYM_OVY)
+
+---
+
 ### 📝 Compilation & Execution
 
 1. **Clone the repository**  
@@ -82,5 +92,8 @@ The main objective was to understand how Huffman coding works by manipulating in
    ```bash
    java Lancement
    ```
+
+---
+
 ### 🙌 Acknowledgements
 Thanks to the teaching staff at IUT de Montreuil for guiding this project.
