@@ -65,6 +65,16 @@ L'objectif principal était de comprendre le fonctionnement du codage de Huffman
 
 ---
 
+### 💻 Installer Java (Si vous n'avez pas Java installé)
+
+Si vous n'avez pas Java installé, vous pouvez suivre les instructions dans l'une de mes vidéos YouTube pour installer Java sur différentes plateformes :
+
+- **Linux**: [Installer Java sur Linux](https://www.youtube.com/watch?v=-9G2YARJ0jM)
+- **Mac**: [Installer Java sur Mac](https://www.youtube.com/watch?v=hts1lGSKZfc&t=1s)
+- **Windows**: [Installer Java sur Windows](https://www.youtube.com/watch?v=vCQHCYM_OVY)
+
+---
+
 ### 📝 Compilation et Exécution
 
 1. **Cloner le dépôt**  
@@ -82,6 +92,8 @@ L'objectif principal était de comprendre le fonctionnement du codage de Huffman
    ```bash
    java Lancement
    ```
+
+---
 
 ### 🙌 Remerciements
 Merci à l’équipe pédagogique de l’IUT de Montreuil pour l’encadrement du projet.
