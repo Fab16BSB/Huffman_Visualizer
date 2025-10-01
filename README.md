@@ -77,6 +77,9 @@ If you don't have Java installed, you can follow the instructions in one of my Y
 ---
 
 ### 📝 Compilation & Execution
+You can compile and run the project either **locally** or using **Docker**.
+
+#### ⚡ Option 1: Local Compilation and Execution
 
 1. **Clone the repository**  
    ```bash
@@ -92,8 +95,31 @@ If you don't have Java installed, you can follow the instructions in one of my Y
    ```bash
    java Lancement
    ```
+   
+#### 🐳 Option 2: Using Docker
+
+1. **Build the Docker image**
+   ```bash
+   docker build -t huffman .
+   ```
+   
+2. **Run the Docker container**
+   ```bash
+   docker run -it --name huffman_container huffman
+   ```
+
+3. **Copy the generated PNG from the container to your host**
+   ```bash
+   docker cp huffman_container:/app/output/huffman.png ./result.png
+   ```
+
+4. **Remove the container**
+   ```bash
+   docker rm huffman_container
+   ```
 
 ---
 
 ### 🙌 Acknowledgements
 Thanks to the teaching staff at IUT de Montreuil for guiding this project.
+
