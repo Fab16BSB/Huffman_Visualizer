@@ -3,6 +3,7 @@
 ![Codage: Huffman](https://img.shields.io/badge/Codage-Huffman-purple)
 ![Java: 8+](https://img.shields.io/badge/Java-8%2B-brightgreen)
 ![Visualisation: Swing](https://img.shields.io/badge/Visualisation-Swing-yellow)
+![Docker Ready](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
 ![Contributors](https://img.shields.io/badge/Contributors-1-orange)
 ![Stars](https://img.shields.io/github/stars/Fab16BSB/Huffman_Visualizer?color=orange)
 ![Forks](https://img.shields.io/github/forks/Fab16BSB/Huffman_Visualizer?color=orange)
@@ -12,9 +13,10 @@
 
 ## 🌍 Versions Multilingues du README
 
-- 🇫🇷 [Français (vous êtes ici)](#)  
-- 🇬🇧 [English](./README.md)  
-- 🇪🇸 [Español](./README.es.md)  
+| 🇫🇷 Français | 🇬🇧 English | 🇪🇸 Español |
+|-------------|------------|------------|
+| Vous êtes ici ! | [README.md](./README.md) | [README.es.md](./README.es.md) |
+
 
 ## 📘 Vue d'Ensemble du Projet
 
@@ -76,6 +78,9 @@ Si vous n'avez pas Java installé, vous pouvez suivre les instructions dans l'un
 ---
 
 ### 📝 Compilation et Exécution
+Vous pouvez compiler et exécuter le projet soit **localement**, soit avec **Docker**.
+
+#### ⚡ Option 1 : Compilation et Exécution Locale
 
 1. **Cloner le dépôt**  
    ```bash
@@ -92,8 +97,40 @@ Si vous n'avez pas Java installé, vous pouvez suivre les instructions dans l'un
    ```bash
    java Lancement
    ```
+   
+#### 🐳 Option 2 : Utilisation de Docker
+
+1. **Construire l’image Docker**
+   ```bash
+   docker build -t huffman .
+   ```
+
+2. **Exécuter le conteneur Docker**
+   ```bash
+   docker run -it --name huffman_container huffman
+   ```
+
+3. **Copier l’image PNG générée du conteneur vers votre machine hôte**
+   ```bash
+   docker cp huffman_container:/app/output/huffman.png ./result.png
+   ```
+
+4. **Supprimer le conteneur**
+   ```bash
+   docker rm huffman_container
+   ```
+---
+
+### 📈 Results
+
+```
+Entrez le texte à compresser : abracadabra
+Image de l'arbre sauvegardé sous : output/huffman.png
+```
+<img src="exemple.png">
 
 ---
 
 ### 🙌 Remerciements
 Merci à l’équipe pédagogique de l’IUT de Montreuil pour l’encadrement du projet.
+
