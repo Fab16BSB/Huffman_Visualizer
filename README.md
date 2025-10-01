@@ -3,6 +3,7 @@
 ![Codage: Huffman](https://img.shields.io/badge/Codage-Huffman-purple)
 ![Java: 8+](https://img.shields.io/badge/Java-8%2B-brightgreen)
 ![Visualisation: Swing](https://img.shields.io/badge/Visualisation-Swing-yellow)
+![Docker Ready](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
 ![Contributors](https://img.shields.io/badge/Contributors-1-orange)
 ![Stars](https://img.shields.io/github/stars/Fab16BSB/Huffman_Visualizer?color=orange)
 ![Forks](https://img.shields.io/github/forks/Fab16BSB/Huffman_Visualizer?color=orange)
@@ -12,9 +13,10 @@
 
 ## 🌍 Multilingual README Versions
 
-- 🇫🇷 [Français](./README.fr.md)  
-- 🇬🇧 [English (you are here)](#)  
-- 🇪🇸 [Español](./README.es.md)  
+| 🇫🇷 Français | 🇬🇧 English | 🇪🇸 Español |
+|-------------|------------|------------|
+| [README.fr.md](./README.fr.md) | You are here ! | [README.es.md](./README.es.md) |
+
 
 ## 📘 Project Overview
 
@@ -120,6 +122,17 @@ You can compile and run the project either **locally** or using **Docker**.
 
 ---
 
+### 📈 Results
+
+```
+Enter the text to compress: abracadabra  
+Tree image saved at: output/huffman.png
+```
+<img src="exemple.png">
+
+---
+
 ### 🙌 Acknowledgements
 Thanks to the teaching staff at IUT de Montreuil for guiding this project.
+
 
