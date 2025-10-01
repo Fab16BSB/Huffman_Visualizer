@@ -3,6 +3,7 @@
 ![Codage: Huffman](https://img.shields.io/badge/Codage-Huffman-purple)
 ![Java: 8+](https://img.shields.io/badge/Java-8%2B-brightgreen)
 ![Visualisation: Swing](https://img.shields.io/badge/Visualisation-Swing-yellow)
+![Docker Ready](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
 ![Contributors](https://img.shields.io/badge/Contributors-1-orange)
 ![Stars](https://img.shields.io/github/stars/Fab16BSB/Huffman_Visualizer?color=orange)
 ![Forks](https://img.shields.io/github/forks/Fab16BSB/Huffman_Visualizer?color=orange)
@@ -12,9 +13,9 @@
 
 ## 🌍 Versiones Multilingües del README
 
-- 🇫🇷 [Francés](./README.fr.md)  
-- 🇬🇧 [Inglés](./README.md)  
-- 🇪🇸 [Español (usted está aquí)](#)  
+| 🇫🇷 Français | 🇬🇧 English | 🇪🇸 Español |
+|-------------|------------|------------|
+| [README.fr.md](./README.fr.md) | [README.md](./README.md) | ¡Estás aquí! |
 
 ## 📘 Visión General del Proyecto
 
@@ -77,6 +78,9 @@ Si no tienes Java instalado, puedes seguir las instrucciones en uno de mis video
 ---
 
 ### 📝 Compilación y Ejecución
+Puedes compilar y ejecutar el proyecto ya sea **localmente** o con **Docker**.
+
+#### ⚡ Opción 1: Compilación y Ejecución Local
 
 1. **Clonar el repositorio**  
    ```bash
@@ -93,8 +97,40 @@ Si no tienes Java instalado, puedes seguir las instrucciones en uno de mis video
    ```bash
    java Lancement
    ```
+
+#### 🐳 Opción 2: Uso de Docker
+
+1. **Construir la imagen Docker**
+   ```bash
+   docker build -t huffman .
+   ```
+
+2. **Ejecutar el contenedor Docker**
+   ```bash
+   docker run -it --name huffman_container huffman
+   ```
+
+3. **Copiar la imagen PNG generada del contenedor a tu máquina**
+   ```bash
+   docker cp huffman_container:/app/output/huffman.png ./result.png
+   ```
    
+5. Eliminar el contenedor
+   ```bash
+   docker rm huffman_container
+   ```
+---
+
+### 📈 Resultados
+
+```
+Introduce el texto a comprimir: abracadabra
+Imagen del árbol guardada en: output/huffman.png
+```
+<img src="exemple.png">
+
 ---
 
 ### 🙌 Agradecimientos
 Gracias al equipo docente del IUT de Montreuil por su acompañamiento durante el proyecto.
+
