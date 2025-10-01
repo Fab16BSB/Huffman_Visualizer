@@ -9,6 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import java.awt.image.BufferedImage; 
+import javax.imageio.ImageIO;       
+import java.io.File;               
+import java.io.IOException; 
+
+
 
 /**
  * A Swing component that displays a binary tree (Arbre) graphically.
@@ -53,19 +59,31 @@ public class Afficheur<E> extends JPanel {
     private final int LARGEUR_FENETRE = 800;
     private final int HAUTEUR_FENETRE = 600;
 
+   
     /**
-     * Constructs an Afficheur with the specified tree.
-     * Initializes the scroll pane and window.
-     *
-     * @param arbre the root of the tree to display
-     */
-    public Afficheur(Arbre<E> arbre) {
+    * Constructs an Afficheur with the specified tree and saves it as a PNG.
+    * Initializes the scroll pane and attempts to open a display window.
+    * In headless environments the window cannot open but the image is still saved.
+    *
+    * @param arbre the root tree to display
+    * @param path  file path where the PNG image will be saved
+    * @throws java.awt.HeadlessException if a graphical display cannot be created (headless environment)
+    */
+
+    public Afficheur(Arbre<E> arbre, String path) {
         this.arbre = arbre;
         this.coord = new HashMap<>();
         setBackground(Color.WHITE);
         this.scroll = new JScrollPane();
         scroll.getViewport().add(this);
-        construitFenetre();
+        sauvegarderImage(path, "png");
+        try{
+            construitFenetre();
+        } catch (java.awt.HeadlessException e) { // Nommer l'exception e est facultatif mais bonne pratique
+            // Message d'erreur corrigé pour la concaténation en Java
+            System.out.println("Échec de l'affichage de la fenêtre graphique (Headless mode détecté).");
+            System.out.println("Vous pouvez consulter l'image sauvegardée ici : " + path);
+        }
     }
 
     /**
@@ -78,6 +96,69 @@ public class Afficheur<E> extends JPanel {
         f.setLocationRelativeTo(null);
         f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         f.setVisible(true);
+    }
+
+    /**
+     * Calcule la taille optimale du panneau pour contenir l'arbre.
+     */
+    private Dimension calculerTaille() {
+        if (arbre == null) {
+            return new Dimension(1, 1);
+        }
+        // Recalculer les coordonnées pour déterminer les dimensions maximales
+        calculerCoordonnees(arbre, 1, 0); 
+        
+        int largeur = (int) (coord.values().stream().mapToDouble(Point::getX).max().orElse(0.0) * dx + LARG_BOITE + mx);
+        int hauteur = (int) (Arbre.hauteur(arbre) * dy + HAUT_BOITE + my);
+        int max_x = (int) (calculerCoordonnees(arbre, 1, 0) * LARG_BOITE * 0.9);
+        int max_y = (int) (Arbre.hauteur(arbre) * (HAUT_BOITE + dy) * 0.9);
+
+        // On prend la plus grande des deux pour être sûr
+        return new Dimension(
+            Math.max(LARGEUR_FENETRE, max_x + dx * 2), 
+            Math.max(HAUTEUR_FENETRE, max_y + dy * 2)
+        );
+    }
+    
+    /**
+     * Sauvegarde le rendu du JPanel dans un fichier image.
+     * @param cheminFichier Le chemin complet où sauvegarder l'image.
+     * @param format Le format de l'image (ex: "png" ou "jpg").
+     */
+    private void sauvegarderImage(String cheminFichier, String format) {
+
+        // 1. Déterminer la taille nécessaire
+        Dimension taille = calculerTaille();
+        
+        // S'assurer que le JPanel a la bonne taille pour le rendu
+        setSize(taille);
+        setPreferredSize(taille);
+        
+        // 2. Créer l'image tampon (BufferedImage)
+        BufferedImage image = new BufferedImage(
+            taille.width, 
+            taille.height, 
+            BufferedImage.TYPE_INT_ARGB
+        );
+
+        // 3. Dessiner le JPanel sur le BufferedImage
+        Graphics g = image.getGraphics();
+        
+        // Appeler la méthode de peinture pour dessiner le contenu de l'arbre
+        paint(g); 
+        
+        g.dispose();
+
+        // 4. Écrire l'image dans le fichier
+        try {
+            File outputfile = new File(cheminFichier);
+            // S'assurer que le répertoire de destination existe
+            outputfile.getParentFile().mkdirs(); 
+            ImageIO.write(image, format, outputfile);
+            System.out.println("Image de l'arbre sauvegardée sous : " + cheminFichier);
+        } catch (IOException e) {
+            System.err.println("Erreur lors de la sauvegarde de l'image : " + e.getMessage());
+        }
     }
 
     /**
