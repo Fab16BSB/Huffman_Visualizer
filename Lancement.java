@@ -19,7 +19,8 @@ public class Lancement {
 
         ArbreCodage arbre = huffman.getArbreHuffman();
 
-        Afficheur<Character> affiche = new Afficheur<Character>(arbre);
+        String path = "output/huffman.png";
+        Afficheur<Character> affiche = new Afficheur<Character>(arbre, path);
 
         scanner.close();
     }
