@@ -121,7 +121,7 @@ Vous pouvez compiler et exécuter le projet soit **localement**, soit avec **Doc
    ```
 ---
 
-### 📈 Results
+### 📈 Résultats
 
 ```
 Entrez le texte à compresser : abracadabra
@@ -133,4 +133,5 @@ Image de l'arbre sauvegardé sous : output/huffman.png
 
 ### 🙌 Remerciements
 Merci à l’équipe pédagogique de l’IUT de Montreuil pour l’encadrement du projet.
+
 
